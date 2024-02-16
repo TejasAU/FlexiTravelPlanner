@@ -1,18 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
-import { ComplexNavbar } from './components/Navbar';
+import { NewNavbar } from './components/Navbar';
 
 function App() {
   return (
     <div className="bg-cover h-screen bg-[url('../public/images/chair-table-dinning-beach-sea-with-blue-sky.jpg')]">
       {/* <h1 className='text-red-300'>helloworld</h1> */}
       {/* <div className=""> */}
-      <ComplexNavbar/>
+      <NewNavbar/>
       {/* </div> */}
-      <h1>hellowor</h1>
-      
-      
-      
+      <h1>helloworld</h1>
     </div>
   );
 }
