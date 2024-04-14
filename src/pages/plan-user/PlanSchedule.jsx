@@ -35,8 +35,6 @@ const tabPanelData = [
     },
 ];
 
-const tabContentData = [];
-
 const ExploreCityButton = () => {
     return (
         <div className="flex items-center justify-center">
@@ -47,7 +45,7 @@ const ExploreCityButton = () => {
     );
 };
 
-export default function DayTimelinev2() {
+export default function PlanSchedule() {
     const [justifyActive, setJustifyActive] = useState("tab1");
 
     const handleJustifyClick = (value) => {
@@ -60,30 +58,30 @@ export default function DayTimelinev2() {
     return (
         <div className="mb-3">
             <TETabs justify>
-                {tabPanelData.map((data, index) => (
-                    <TETabsItem
-                        onClick={() => handleJustifyClick("tab" + { index })}
-                        active={justifyActive === "tab" + { index }}
-                        color="secondary"
-                        className="duration-300"
-                    >
-                        <div className="flex flex-col text-base">
-                            <div>Day {data.dayNum}</div>
-                            <div>{data.date}</div>
-                        </div>
-                    </TETabsItem>
-                ))}
+                {tabPanelData.map((data, index) => {
+                    return (
+                        <TETabsItem
+                            onClick={() =>
+                                handleJustifyClick("tab" + (index + 1))
+                            }
+                            active={justifyActive === ("tab" + (index + 1))}
+                            color="secondary"
+                            className="duration-300"
+                        >
+                            <div className="flex flex-col text-base">
+                                <div>Day {data.dayNum}</div>
+                                <div>{data.date}</div>
+                            </div>
+                        </TETabsItem>
+                    );
+                })}
             </TETabs>
 
             <TETabsContent>
                 {tabPanelData.map((_, index) => (
-                    <TETabsPane show={justifyActive === "tab" + { index }}>
+                    <TETabsPane show={justifyActive === ("tab" + (index + 1))}>
                         <Link to={"../../explorecity/1"}>
-                            <div className="flex items-center justify-center">
-                                <button className="btn btn-outline btn-secondary w-2/3">
-                                    Explore Things to Do
-                                </button>
-                            </div>
+                            <ExploreCityButton />
                         </Link>
                         <DayTimeline test={index + 1} />
                     </TETabsPane>

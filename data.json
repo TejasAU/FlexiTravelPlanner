@@ -1,0 +1,551 @@
+{
+    "results": [
+      {
+        "fsq_id": "4bcfe10f046076b0e02e6f71",
+        "categories": [
+          {
+            "id": 10043,
+            "name": "Theater",
+            "short_name": "Theater",
+            "plural_name": "Theaters",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/performingarts_theater_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "LikelyOpen",
+        "distance": 6367,
+        "geocodes": {
+          "main": {
+            "latitude": 19.106157,
+            "longitude": 72.82581
+          }
+        },
+        "link": "/v3/places/4bcfe10f046076b0e02e6f71",
+        "location": {
+          "address": "Church Road",
+          "country": "IN",
+          "cross_street": "Juhu",
+          "formatted_address": "Church Road (Juhu), Mumbai 400049, Mahārāshtra",
+          "locality": "Mumbai",
+          "postcode": "400049",
+          "region": "Mahārāshtra"
+        },
+        "name": "Prithvi Theatre",
+        "related_places": {},
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "4b0587cdf964a52047a222e3",
+        "categories": [
+          {
+            "id": 10039,
+            "name": "Music Venue",
+            "short_name": "Music Venue",
+            "plural_name": "Music Venues",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "Unsure",
+        "distance": 6362,
+        "geocodes": {
+          "main": {
+            "latitude": 19.106149,
+            "longitude": 72.825773
+          },
+          "roof": {
+            "latitude": 19.106149,
+            "longitude": 72.825773
+          }
+        },
+        "link": "/v3/places/4b0587cdf964a52047a222e3",
+        "location": {
+          "address": "20 Janki Kutir, Juhu Church Road",
+          "address_extended": "Near Vaishali Apartments, Juhu",
+          "country": "IN",
+          "cross_street": "",
+          "formatted_address": "20 Janki Kutir, Juhu Church Road, Mumbai 400049, Mahārāshtra",
+          "locality": "Mumbai",
+          "postcode": "400049",
+          "region": "Mahārāshtra"
+        },
+        "name": "Prithvi Theatre",
+        "related_places": {},
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "53fb36a8498ec2bab985f470",
+        "categories": [
+          {
+            "id": 10024,
+            "name": "Movie Theater",
+            "short_name": "Movie Theater",
+            "plural_name": "Movie Theaters",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/movietheater_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "LikelyOpen",
+        "distance": 1753,
+        "geocodes": {
+          "main": {
+            "latitude": 19.086582,
+            "longitude": 72.889912
+          }
+        },
+        "link": "/v3/places/53fb36a8498ec2bab985f470",
+        "location": {
+          "address": "Market City Kurla",
+          "country": "IN",
+          "cross_street": "",
+          "formatted_address": "Market City Kurla"
+        },
+        "name": "Pvr cinema's Gold class lounge",
+        "related_places": {},
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "4b0587ddf964a520afa422e3",
+        "categories": [
+          {
+            "id": 10051,
+            "name": "Stadium",
+            "short_name": "Stadium",
+            "plural_name": "Stadiums",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/stadium_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "Unsure",
+        "distance": 6131,
+        "geocodes": {
+          "main": {
+            "latitude": 19.060681,
+            "longitude": 72.836159
+          },
+          "roof": {
+            "latitude": 19.060681,
+            "longitude": 72.836159
+          }
+        },
+        "link": "/v3/places/4b0587ddf964a520afa422e3",
+        "location": {
+          "address": "Carter Road, Bandra West",
+          "country": "IN",
+          "cross_street": "near Joggers Park",
+          "formatted_address": "Carter Road, Bandra West (near Joggers Park), Mumbai 400050, Mahārāshtra",
+          "locality": "Mumbai",
+          "postcode": "400050",
+          "region": "Mahārāshtra"
+        },
+        "name": "Otters Club",
+        "related_places": {
+          "children": [
+            {
+              "fsq_id": "62fb818fc5b85e5b7ed1d9d0",
+              "categories": [
+                {
+                  "id": 12080,
+                  "name": "Library",
+                  "short_name": "Library",
+                  "plural_name": "Libraries",
+                  "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/building/library_",
+                    "suffix": ".png"
+                  }
+                }
+              ],
+              "name": "Otters Library"
+            },
+            {
+              "fsq_id": "6203f7f8c4106a54f3e4b6b1",
+              "categories": [
+                {
+                  "id": 18065,
+                  "name": "Sports Club",
+                  "short_name": "Sports Club",
+                  "plural_name": "Sports Clubs",
+                  "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/sports_outdoors_",
+                    "suffix": ".png"
+                  }
+                }
+              ],
+              "name": "On The Rocks Otters Bar"
+            }
+          ]
+        },
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "5653381f498e767f964c04c0",
+        "categories": [
+          {
+            "id": 10024,
+            "name": "Movie Theater",
+            "short_name": "Movie Theater",
+            "plural_name": "Movie Theaters",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/movietheater_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "LikelyOpen",
+        "distance": 4835,
+        "geocodes": {
+          "main": {
+            "latitude": 19.099381,
+            "longitude": 72.916152
+          },
+          "roof": {
+            "latitude": 19.099381,
+            "longitude": 72.916152
+          }
+        },
+        "link": "/v3/places/5653381f498e767f964c04c0",
+        "location": {
+          "address": "T 13, Food Court, R City Mall, Lbs Road, Amrut Nagar, Ghatkopar West",
+          "address_extended": "3rd Floor",
+          "country": "IN",
+          "cross_street": "LBS Marg Ghatkopar",
+          "formatted_address": "T 13, Food Court, R City Mall, Lbs Road, Amrut Nagar, Ghatkopar West (LBS Marg Ghatkopar), Mumbai 400086, Mahārāshtra",
+          "locality": "Mumbai",
+          "postcode": "400086",
+          "region": "Mahārāshtra"
+        },
+        "name": "Inox",
+        "related_places": {
+          "parent": {
+            "fsq_id": "4b27c85ff964a520dc8924e3",
+            "categories": [
+              {
+                "id": 17114,
+                "name": "Shopping Mall",
+                "short_name": "Mall",
+                "plural_name": "Shopping Malls",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/mall_",
+                  "suffix": ".png"
+                }
+              }
+            ],
+            "name": "R City Mall"
+          },
+          "children": [
+            {
+              "fsq_id": "56ffe6ab498ee83ea0a51259",
+              "categories": [
+                {
+                  "id": 10024,
+                  "name": "Movie Theater",
+                  "short_name": "Movie Theater",
+                  "plural_name": "Movie Theaters",
+                  "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/movietheater_",
+                    "suffix": ".png"
+                  }
+                }
+              ],
+              "name": "Insignia"
+            }
+          ]
+        },
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "4b0587dbf964a52078a422e3",
+        "categories": [
+          {
+            "id": 10000,
+            "name": "Arts and Entertainment",
+            "short_name": "Arts & Entertainment",
+            "plural_name": "Arts and Entertainment",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/default_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "LikelyOpen",
+        "distance": 6275,
+        "geocodes": {
+          "drop_off": {
+            "latitude": 19.103064,
+            "longitude": 72.82506
+          },
+          "main": {
+            "latitude": 19.103347,
+            "longitude": 72.825027
+          }
+        },
+        "link": "/v3/places/4b0587dbf964a52078a422e3",
+        "location": {
+          "address": "Juhu Tara Road",
+          "country": "IN",
+          "cross_street": "",
+          "formatted_address": "Juhu Tara Road, Mumbai 400049, Mahārāshtra",
+          "locality": "Mumbai",
+          "postcode": "400049",
+          "region": "Mahārāshtra"
+        },
+        "name": "Razzberry Rhinoceros",
+        "related_places": {
+          "parent": {
+            "fsq_id": "4b0587caf964a520dea122e3",
+            "categories": [
+              {
+                "id": 19014,
+                "name": "Hotel",
+                "short_name": "Hotel",
+                "plural_name": "Hotels",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/hotel_",
+                  "suffix": ".png"
+                }
+              }
+            ],
+            "name": "Juhu Hotel"
+          }
+        },
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "4beaafb2415e20a1af48e5bb",
+        "categories": [
+          {
+            "id": 10000,
+            "name": "Arts and Entertainment",
+            "short_name": "Arts & Entertainment",
+            "plural_name": "Arts and Entertainment",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/default_",
+              "suffix": ".png"
+            }
+          },
+          {
+            "id": 12004,
+            "name": "Community Center",
+            "short_name": "Community Center",
+            "plural_name": "Community Centers",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/building/default_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "Unsure",
+        "distance": 3159,
+        "geocodes": {
+          "main": {
+            "latitude": 19.05934,
+            "longitude": 72.901888
+          },
+          "roof": {
+            "latitude": 19.05934,
+            "longitude": 72.901888
+          }
+        },
+        "link": "/v3/places/4beaafb2415e20a1af48e5bb",
+        "location": {
+          "address": "Ca Road No.16",
+          "address_extended": "Near Ambedkar Garden, Chembur East",
+          "country": "IN",
+          "cross_street": "Chembur",
+          "formatted_address": "Ca Road No.16 (Chembur), Mumbai 400071, Mahārāshtra",
+          "locality": "Mumbai",
+          "postcode": "400071",
+          "region": "Mahārāshtra"
+        },
+        "name": "Chembur Gymkhana",
+        "related_places": {},
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "4b0587dbf964a5207da422e3",
+        "categories": [
+          {
+            "id": 10051,
+            "name": "Stadium",
+            "short_name": "Stadium",
+            "plural_name": "Stadiums",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/stadium_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "LikelyOpen",
+        "distance": 16187,
+        "geocodes": {
+          "main": {
+            "latitude": 18.938921,
+            "longitude": 72.825813
+          }
+        },
+        "link": "/v3/places/4b0587dbf964a5207da422e3",
+        "location": {
+          "address": "Churhgate",
+          "country": "IN",
+          "formatted_address": "Churhgate, Mumbai 400020, Mahārāshtra",
+          "locality": "Mumbai",
+          "postcode": "400020",
+          "region": "Mahārāshtra"
+        },
+        "name": "Wankhede Stadium",
+        "related_places": {
+          "children": [
+            {
+              "fsq_id": "59ec7a1d6adbf520cefe7b52",
+              "categories": [
+                {
+                  "id": 10051,
+                  "name": "Stadium",
+                  "short_name": "Stadium",
+                  "plural_name": "Stadiums",
+                  "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/stadium_",
+                    "suffix": ".png"
+                  }
+                }
+              ],
+              "name": "North Stand"
+            }
+          ]
+        },
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "4b0587d3f964a5203ba322e3",
+        "categories": [
+          {
+            "id": 10030,
+            "name": "History Museum",
+            "short_name": "History Museum",
+            "plural_name": "History Museums",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/museum_history_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "LikelyOpen",
+        "distance": 14673,
+        "geocodes": {
+          "drop_off": {
+            "latitude": 18.959725,
+            "longitude": 72.811454
+          },
+          "main": {
+            "latitude": 18.959811,
+            "longitude": 72.811509
+          }
+        },
+        "link": "/v3/places/4b0587d3f964a5203ba322e3",
+        "location": {
+          "address": "19 Laburnum Rd",
+          "country": "IN",
+          "cross_street": "",
+          "formatted_address": "19 Laburnum Rd, Mumbai 400007, Mahārāshtra",
+          "locality": "Mumbai",
+          "postcode": "400007",
+          "region": "Mahārāshtra"
+        },
+        "name": "Mani Bhavan Gandhi Sangrahalaya",
+        "related_places": {
+          "parent": {
+            "fsq_id": "fefddd25183741ca8709701a",
+            "categories": [
+              {
+                "id": 11000,
+                "name": "Business and Professional Services",
+                "short_name": "Business and Professional Services",
+                "plural_name": "Business and Professional Services",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/building/default_",
+                  "suffix": ".png"
+                }
+              }
+            ],
+            "name": "Mani Bhawan"
+          }
+        },
+        "timezone": "Asia/Kolkata"
+      },
+      {
+        "fsq_id": "4bc9c791937ca593ff45a692",
+        "categories": [
+          {
+            "id": 10001,
+            "name": "Amusement Park",
+            "short_name": "Amusement Park",
+            "plural_name": "Amusement Parks",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/themepark_",
+              "suffix": ".png"
+            }
+          },
+          {
+            "id": 16032,
+            "name": "Park",
+            "short_name": "Park",
+            "plural_name": "Parks",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/park_",
+              "suffix": ".png"
+            }
+          }
+        ],
+        "chains": [],
+        "closed_bucket": "LikelyOpen",
+        "distance": 20576,
+        "geocodes": {
+          "main": {
+            "latitude": 19.055448,
+            "longitude": 73.072212
+          }
+        },
+        "link": "/v3/places/4bc9c791937ca593ff45a692",
+        "location": {
+          "address": "Shahid Bhagat Singh Marg, Sector 23, Kharghar",
+          "country": "IN",
+          "cross_street": "",
+          "formatted_address": "Shahid Bhagat Singh Marg, Sector 23, Kharghar, Kharghar 410210, Mahārāshtra",
+          "locality": "Kharghar",
+          "postcode": "410210",
+          "region": "Mahārāshtra"
+        },
+        "name": "Central Park Kharghar",
+        "related_places": {},
+        "timezone": "Asia/Kolkata"
+      }
+    ],
+    "context": {
+      "geo_bounds": {
+        "circle": {
+          "center": {
+            "latitude": 19.07609,
+            "longitude": 72.877426
+          },
+          "radius": 22000
+        }
+      }
+    }
+  }
