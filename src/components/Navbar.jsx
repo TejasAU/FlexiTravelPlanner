@@ -53,7 +53,9 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
+                <Link to={`/`}>
                 <a className="btn btn-ghost text-xl">Wayfinder</a>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
