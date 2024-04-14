@@ -10,6 +10,9 @@ export default {
                 "vh-75": "75vh",
                 "vh-100": "100vh",
             },
+            gridTemplateRows: {
+                "times" : 'repeat(48, minmax(3.5rem, 1fr))',
+            }
         },
     },
     // eslint-disable-next-line no-undef
