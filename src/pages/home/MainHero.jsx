@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import mainHeroOverlay from '../../assets/main-hero-overlay.jpg'
 
 export default function MainHero() {
@@ -15,7 +16,9 @@ export default function MainHero() {
                     <p className="mb-10 text-xl">
                         Plan, Pack, Preserve, and Prosper on Your Adventures
                     </p>
+                    <Link to={`signup`}>
                     <button className="btn btn-secondary">Start Your Journey</button>
+                    </Link>
                 </div>
             </div>
         </div>
