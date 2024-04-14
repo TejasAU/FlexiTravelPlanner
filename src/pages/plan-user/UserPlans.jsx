@@ -1,7 +1,10 @@
 import userPlansOverlay from "../../assets/user-plans-overlay.jpg";
+import { Link } from "react-router-dom";
+import AddPlanModal from "./AddPlanModal";
 
 const userItineraries = [
     {
+        id: 1,
         title: "Itinerary for City 1",
         desc: "Short optional description here",
         isBudgetSet: true,
@@ -9,6 +12,7 @@ const userItineraries = [
         isPublic: true,
     },
     {
+        id: 2,
         title: "Itinerary for City 2",
         desc: "Short optional description here",
         isBudgetSet: false,
@@ -16,6 +20,7 @@ const userItineraries = [
         isPublic: false,
     },
     {
+        id: 3,
         title: "Itinerary for City 3",
         desc: "Short optional description here",
         isBudgetSet: true,
@@ -23,6 +28,7 @@ const userItineraries = [
         isPublic: false,
     },
     {
+        id: 4,
         title: "Itinerary for City 4",
         desc: "Short optional description here",
         isBudgetSet: false,
@@ -32,7 +38,7 @@ const userItineraries = [
 ];
 
 const ItineraryContainer = ({ itinerary }) => {
-    const { title, desc, isBudgetSet, isListSet, isPublic } = itinerary;
+    const { id, title, desc, isBudgetSet, isListSet, isPublic } = itinerary;
     return (
         <div className="collapse collapse-plus bg-neutral">
             <input type="radio" name="my-accordion" />
@@ -97,12 +103,23 @@ const ItineraryContainer = ({ itinerary }) => {
                         </div>
                     )}
                 </p>
+                <div className="card-actions justify-end">
+                    <Link to={`${id}`}>
+                        <button className="btn btn-secondary">
+                            Click here for more details
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     );
 };
 
 export default function UserPlans() {
+    function handleAddItinerary() {
+        document.getElementById("add_plan_modal").showModal();
+    }
+
     return (
         <div
             className="flex items-center justify-center min-h-screen"
@@ -119,6 +136,29 @@ export default function UserPlans() {
                     {userItineraries.map((itinerary) => (
                         <ItineraryContainer itinerary={itinerary} />
                     ))}
+                </div>
+                <div className="flex items-center justify-center pb-8">
+                    <button
+                        className="btn btn-wide btn-outline btn-secondary"
+                        onClick={handleAddItinerary}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 4.5v15m7.5-7.5h-15"
+                            />
+                        </svg>
+                        Add an Itinerary
+                        <AddPlanModal />
+                    </button>
                 </div>
             </div>
         </div>

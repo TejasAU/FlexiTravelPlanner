@@ -4,6 +4,8 @@ import App from './App.jsx'
 import Home from './pages/home/Home.jsx'
 import ExplorePlans from './pages/plan-explore/ExplorePlans.jsx'
 import UserPlans from './pages/plan-user/UserPlans.jsx'
+import PlanDetails from './pages/plan-user/PlanDetails.jsx'
+import "tw-elements-react/dist/css/tw-elements-react.min.css";
 
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -19,7 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "myplans",
-        element: <UserPlans />
+        element: <UserPlans />,
+      },
+      {
+        path: "myplans/:planid",
+        element: <PlanDetails />,
       }
     ]
   },

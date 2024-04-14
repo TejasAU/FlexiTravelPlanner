@@ -15,7 +15,7 @@ export default function MainHero() {
                     <p className="mb-10 text-xl">
                         Plan, Pack, Preserve, and Prosper on Your Adventures
                     </p>
-                    <button className="btn btn-primary">Start Your Journey</button>
+                    <button className="btn btn-secondary">Start Your Journey</button>
                 </div>
             </div>
         </div>

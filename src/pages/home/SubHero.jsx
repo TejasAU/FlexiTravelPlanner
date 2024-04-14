@@ -12,7 +12,7 @@ export default function SubHero({ alignment, heading, desc }) {
             ref={ref}
             className={
                 "hero min-h-screen " +
-                (alignment === "left" ? "bg-base-100" : "bg-primary")
+                (alignment === "left" ? "bg-base-100" : "bg-secondary")
             }
         >
             <div
