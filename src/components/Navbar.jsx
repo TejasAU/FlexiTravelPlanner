@@ -84,6 +84,7 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end gap-3">
+            <Link to={`login`}>
                 <button className="btn btn-outline btn-neutral">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -104,6 +105,8 @@ export default function Navbar() {
                     </svg>
                     Login
                 </button>
+                </Link>
+                <Link to={`signup`}>
                 <button className="btn btn-outline btn-neutral">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +118,7 @@ export default function Navbar() {
                     </svg>
                     Register
                 </button>
+                </Link>
             </div>
         </div>
     );
