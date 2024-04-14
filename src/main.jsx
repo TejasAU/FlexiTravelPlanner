@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import Home from './pages/home/Home.jsx'
 import ExplorePlans from './pages/plan-explore/ExplorePlans.jsx'
 import UserPlans from './pages/plan-user/UserPlans.jsx'
 import PlanDetails from './pages/plan-user/PlanDetails.jsx'
+import CityDetails from './pages/place-explore/CityDetails.jsx'
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 
 import './index.css'
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "myplans/:planid",
         element: <PlanDetails />,
+      },
+      {
+        path: "explorecity/:cityid",
+        element: <CityDetails />
       }
     ]
   },

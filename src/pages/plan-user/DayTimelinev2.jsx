@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
     TETabs,
     TETabsContent,
@@ -6,6 +6,7 @@ import {
     TETabsPane,
 } from "tw-elements-react";
 import DayTimeline from "./DayTimeline";
+import { Link } from "react-router-dom";
 
 export default function DayTimelinev2() {
     const [justifyActive, setJustifyActive] = useState("tab1");
@@ -85,11 +86,14 @@ export default function DayTimelinev2() {
 
             <TETabsContent>
                 <TETabsPane show={justifyActive === "tab1"}>
+                    
+                <Link to={'../../explorecity/1'}>
                     <div className="flex items-center justify-center">
                         <button className="btn btn-outline btn-secondary w-2/3">
                             Explore Things to Do
                         </button>
                     </div>
+                </Link>
                     <DayTimeline test={1} />
                 </TETabsPane>
                 <TETabsPane show={justifyActive === "tab2"}>

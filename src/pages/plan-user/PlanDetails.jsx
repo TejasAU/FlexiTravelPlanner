@@ -1,7 +1,5 @@
 import { useParams } from "react-router-dom";
 import PlanSchedule from "./PlanSchedule";
-import PackingList from "./PackingList";
-import BudgetList from "./BudgetList";
 
 
 export default function PlanDetails() {
