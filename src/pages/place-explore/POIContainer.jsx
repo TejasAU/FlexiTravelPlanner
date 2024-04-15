@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import AddPOIModal from "./AddPOIModal";
 
 export default function POIContainer() {
     const containerRef = useRef(null);
@@ -52,6 +53,11 @@ export default function POIContainer() {
             />
         </svg>
     );
+
+    function handleAddPOI() {
+        document.getElementById("add_poi_modal").showModal();
+    }
+
     return (
         <div className="flex mx-7 my-3 justify-center items-center gap-6">
             <button
@@ -64,8 +70,6 @@ export default function POIContainer() {
                 ref={containerRef}
                 className="mt-6 flex flex-nowrap overflow-x-scroll no-scrollbar pb-4"
             >
-                {/* Your city card components here */}
-                {/* For demonstration, I've used a placeholder */}
                 {[...Array(10)].map((_, index) => (
                     <div key={index} className="inline-block px-3">
                         <div className="card w-96 bg-neutral shadow-xl">
@@ -77,12 +81,14 @@ export default function POIContainer() {
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">Place Name</h2>
-                                <p>
-                                    Address
-                                </p>
+                                <p>Address</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-secondary">
+                                    <button
+                                        className="btn btn-secondary"
+                                        onClick={handleAddPOI}
+                                    >
                                         Add to Itinerary
+                                        <AddPOIModal />
                                     </button>
                                 </div>
                             </div>

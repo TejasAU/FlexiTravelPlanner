@@ -67,7 +67,7 @@ const PrivateIcon = () => {
 };
 
 const ItineraryContainer = ({ itinerary }) => {
-    const { id, title, desc, isBudgetSet, isListSet, isPublic } = itinerary;
+    const { id, title, desc, isPublic } = itinerary;
     return (
         <div className="collapse collapse-plus bg-neutral">
             <input type="radio" name="my-accordion" />

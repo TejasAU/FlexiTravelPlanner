@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     TETabs,
     TETabsContent,
@@ -7,33 +7,7 @@ import {
 } from "tw-elements-react";
 import DayTimeline from "./DayTimeline";
 import { Link } from "react-router-dom";
-
-const tabPanelData = [
-    {
-        dayNum: 1,
-        date: "11/01/2024",
-    },
-    {
-        dayNum: 2,
-        date: "12/01/2024",
-    },
-    {
-        dayNum: 3,
-        date: "13/01/2024",
-    },
-    {
-        dayNum: 4,
-        date: "14/01/2024",
-    },
-    {
-        dayNum: 5,
-        date: "15/01/2024",
-    },
-    {
-        dayNum: 6,
-        date: "16/01/2024",
-    },
-];
+import { useItinerary } from "../../contexts/ItineraryContext";
 
 const ExploreCityButton = () => {
     return (
@@ -47,7 +21,8 @@ const ExploreCityButton = () => {
 
 export default function PlanSchedule() {
     const [justifyActive, setJustifyActive] = useState("tab1");
-
+    const { startDate, endDate, city } = useItinerary();
+    const [dates, setDates] = useState([])
     const handleJustifyClick = (value) => {
         if (value === justifyActive) {
             return;
@@ -55,22 +30,41 @@ export default function PlanSchedule() {
         setJustifyActive(value);
     };
 
+    const getDates = (startDate, endDate) => {
+        const dates = [];
+        let currentDate = new Date(startDate);
+
+        while (currentDate <= endDate) {
+            dates.push(new Date(currentDate).toISOString().slice(0, 10));
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+
+        return dates;
+    };
+
+    useEffect(() => {
+        const startDateObj = new Date(startDate)
+        const endDateObj = new Date(endDate)
+        const datesBetween = getDates(startDateObj, endDateObj);
+        setDates(datesBetween);
+    }, []);
+
     return (
         <div className="mb-3">
             <TETabs justify>
-                {tabPanelData.map((data, index) => {
+                {dates.map((date, index) => {
                     return (
                         <TETabsItem
                             onClick={() =>
                                 handleJustifyClick("tab" + (index + 1))
                             }
-                            active={justifyActive === ("tab" + (index + 1))}
+                            active={justifyActive === "tab" + (index + 1)}
                             color="secondary"
                             className="duration-300"
                         >
                             <div className="flex flex-col text-base">
-                                <div>Day {data.dayNum}</div>
-                                <div>{data.date}</div>
+                                <div>Day {index + 1}</div>
+                                <div>{date}</div>
                             </div>
                         </TETabsItem>
                     );
@@ -78,8 +72,8 @@ export default function PlanSchedule() {
             </TETabs>
 
             <TETabsContent>
-                {tabPanelData.map((_, index) => (
-                    <TETabsPane show={justifyActive === ("tab" + (index + 1))}>
+                {dates.map((_, index) => (
+                    <TETabsPane show={justifyActive === "tab" + (index + 1)}>
                         <Link to={"../../explorecity/1"}>
                             <ExploreCityButton />
                         </Link>

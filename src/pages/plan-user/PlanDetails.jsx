@@ -3,7 +3,6 @@ import PlanSchedule from "./PlanSchedule";
 
 
 export default function PlanDetails() {
-    let { planid } = useParams();
     return (
         <div className="flex flex-row flex-1 items-center justify-center min-h-screen gap-10 bg-slate-100">
             <div className="card flex flex-col basis-10/12 text-secondary bg-base-100 shadow-xl mt-4">

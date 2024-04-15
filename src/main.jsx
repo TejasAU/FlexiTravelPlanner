@@ -10,11 +10,13 @@ import Signup from './pages/login/Signup.jsx'
 import Login from './pages/login/Login.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { UserProvider } from './contexts/UserContext.jsx'
+import { ItineraryProvider } from './contexts/ItineraryContext.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <UserProvider><App /></UserProvider>,
     children: [
       {
         path: "exploreplans",
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "explorecity/:cityid",
-        element: <CityDetails />
+        element: <CityDetails />,
       }
     ]
   },
@@ -46,6 +48,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ItineraryProvider>
+      <RouterProvider router={router} />
+    </ItineraryProvider>
   </React.StrictMode>,
 )
