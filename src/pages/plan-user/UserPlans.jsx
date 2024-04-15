@@ -8,32 +8,24 @@ const userItineraries = [
         id: 1,
         title: "Itinerary for City 1",
         desc: "Short optional description here",
-        isBudgetSet: true,
-        isListSet: true,
         isPublic: true,
     },
     {
         id: 2,
         title: "Itinerary for City 2",
         desc: "Short optional description here",
-        isBudgetSet: false,
-        isListSet: false,
         isPublic: false,
     },
     {
         id: 3,
         title: "Itinerary for City 3",
         desc: "Short optional description here",
-        isBudgetSet: true,
-        isListSet: false,
         isPublic: false,
     },
     {
         id: 4,
         title: "Itinerary for City 4",
         desc: "Short optional description here",
-        isBudgetSet: false,
-        isListSet: true,
         isPublic: true,
     },
 ];
@@ -82,26 +74,6 @@ const ItineraryContainer = ({ itinerary }) => {
             <div className="collapse-title text-xl font-medium">{title}</div>
             <div className="collapse-content">
                 <p>{desc}</p>
-                <p className="inline-block">
-                    Budget Set:
-                    {isBudgetSet ? (
-                        <div className="text-success inline-block pl-2">
-                            Yes
-                        </div>
-                    ) : (
-                        <div className="text-error inline-block pl-2">No</div>
-                    )}
-                </p>
-                <p>
-                    Packing List Created:
-                    {isListSet ? (
-                        <div className="text-success inline-block pl-2">
-                            Yes
-                        </div>
-                    ) : (
-                        <div className="text-error inline-block pl-2">No</div>
-                    )}
-                </p>
                 <p className="flex items-center gap-2">
                     Visibility:
                     {isPublic ? (

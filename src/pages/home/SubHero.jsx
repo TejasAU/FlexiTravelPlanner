@@ -31,10 +31,6 @@ export default function SubHero({ alignment, heading, desc }) {
                         "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
                 }}
             >
-                <img
-                    src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                    className="max-w-sm rounded-lg shadow-2xl"
-                />
                 <div>
                     <h1 className="text-5xl font-bold">{heading}</h1>
                     <p className="py-6">{desc}</p>
