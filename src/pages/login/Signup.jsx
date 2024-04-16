@@ -2,10 +2,27 @@ import { useState } from "react";
 
 export default function Signup() {
     const [email, setEmail] = useState("");
+    const [error, setError] = useState("");
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [isTermsChecked, setIsTermsChecked] = useState(false);
+
+    const isEmailValid = (email) => {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(email);
+    };
+    
+    const handleEmailChange = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+
+        if (!isEmailValid(value)) {
+            setError("Invalid email format.");
+        } else {
+            setError("");
+        }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,6 +32,7 @@ export default function Signup() {
             email,
             password,
         };
+    
 
         try {
             const response = await fetch(
@@ -76,8 +94,9 @@ export default function Signup() {
                                 placeholder="Enter Your Email"
                                 value={email}
                                 className="input input-bordered input-primary w-full text-black placeholder:text-black/70"
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={handleEmailChange}
                             />
+                            {error && <p className="text-error">{error}</p>}
                             <input
                                 type="Password"
                                 placeholder="Enter Your Password"
