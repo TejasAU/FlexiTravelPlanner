@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../contexts/UserContext";
 
 export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const navigate = useNavigate("/")
+    const { loginUser } = useUser();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,8 +30,15 @@ export default function Signup() {
                 }
             );
 
-            const data = await response.json();
-            console.log(data);
+            const responseData = await response.json();
+            console.log(responseData);
+            const userDetails = {
+                userId: responseData.user._id,
+                name: responseData.user.name
+            }
+            localStorage.setItem('user', JSON.stringify(userDetails));
+            loginUser(userDetails);
+            navigate("/")
         } catch (error) {
             console.error("Error:", error);
         }
@@ -48,7 +59,7 @@ export default function Signup() {
               />
             </div> */}
                 <div className="mx-auto w-full lg:w-1/2 md:p-10 py-5 md:py-0">
-                    <h1 className="text-center text-2xl sm:text-3xl font-semibold text-[#4A07DA]">
+                    <h1 className="text-center text-2xl sm:text-3xl font-semibold text-secondary-content">
                         Create Account
                     </h1>
                     <div className="w-full mt-5 sm:mt-8">
@@ -58,7 +69,7 @@ export default function Signup() {
                                     type="text"
                                     placeholder="Enter Your First Name"
                                     value={firstName}
-                                    className="input input-bordered input-primary w-full max-w-xs text-black placeholder:text-black/70"
+                                    className="input input-bordered input-secondary w-full max-w-xs text-black placeholder:text-black/70"
                                     onChange={(e) =>
                                         setFirstName(e.target.value)
                                     }
@@ -67,7 +78,7 @@ export default function Signup() {
                                     type="text"
                                     placeholder="Enter Your Last Name"
                                     value={lastName}
-                                    className="input input-bordered input-primary w-full max-w-xs text-black placeholder:text-black/70"
+                                    className="input input-bordered input-secondary w-full max-w-xs text-black placeholder:text-black/70"
                                     onChange={(e) =>
                                         setLastName(e.target.value)
                                     }
@@ -77,14 +88,14 @@ export default function Signup() {
                                 type="text"
                                 placeholder="Enter Your Email"
                                 value={email}
-                                className="input input-bordered input-primary w-full text-black placeholder:text-black/70"
+                                className="input input-bordered input-secondary w-full text-black placeholder:text-black/70"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <input
                                 type="Password"
                                 placeholder="Enter Your Password"
                                 value={password}
-                                className="input input-bordered input-primary w-full text-black placeholder:text-black/70"
+                                className="input input-bordered input-secondary w-full text-black placeholder:text-black/70"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             <div className="flex items-center gap-1.5  justify-start pl-2">
@@ -92,17 +103,17 @@ export default function Signup() {
                                     <label className="label cursor-pointer">
                                         <input
                                             type="checkbox"
-                                            className="checkbox-xs checkbox-primary"
+                                            className="checkbox-xs checkbox-secondary"
                                         />
                                     </label>
                                 </div>
                                 <h3 className="flex items-center whitespace-nowrap text-xs text-black">
                                     I agree to the
-                                    <span className="text-[#4A07DA]">
+                                    <span className="text-secondary-content">
                                         &nbsp;Terms
                                     </span>
                                     &nbsp;and
-                                    <span className="text-[#4A07DA]">
+                                    <span className="text-secondary-content">
                                         &nbsp;Privacy Policy
                                     </span>
                                     .
@@ -110,14 +121,11 @@ export default function Signup() {
                             </div>
                             <div className="flex flex-col md:flex-row gap-2 md:gap-4 justify-center items-center">
                                 <button
-                                    className="btn btn-active btn-primary btn-block max-w-[200px]"
                                     type="submit"
+                                    className="btn btn-outline btn-secondary btn-block max-w-[200px]"
                                 >
                                     Sign Up
                                 </button>
-                                {/* <button className="btn btn-outline btn-primary btn-block max-w-[200px]">
-                      Sign In
-                    </button> */}
                             </div>
                         </div>
                     </div>

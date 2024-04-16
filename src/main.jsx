@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <UserPlans />,
       },
       {
-        path: "myplans/:planid",
+        path: "myplans/:itineraryId",
         element: <PlanDetails />,
       },
       {
@@ -47,9 +47,7 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <ItineraryProvider>
       <RouterProvider router={router} />
-    </ItineraryProvider>
-  </React.StrictMode>,
+    </ItineraryProvider>,
 )

@@ -2,51 +2,8 @@ import userPlansOverlay from "../../assets/user-plans-overlay.jpg";
 import { Link } from "react-router-dom";
 import AddPlanModal from "./AddPlanModal";
 import PlusIcon from "../../components/PlusIcon";
-
-const userItineraries = [
-    {
-        id: 1,
-        title: "Itinerary for City 1",
-        desc: "Short optional description here",
-        isPublic: true,
-    },
-    {
-        id: 2,
-        title: "Itinerary for City 2",
-        desc: "Short optional description here",
-        isPublic: false,
-    },
-    {
-        id: 3,
-        title: "Itinerary for City 3",
-        desc: "Short optional description here",
-        isPublic: false,
-    },
-    {
-        id: 4,
-        title: "Itinerary for City 4",
-        desc: "Short optional description here",
-        isPublic: true,
-    },
-];
-
-const PublicIcon = () => {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-6 h-6"
-        >
-            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-            <path
-                fillRule="evenodd"
-                d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                clipRule="evenodd"
-            />
-        </svg>
-    );
-};
+import { useEffect, useState } from "react";
+import { useUser } from "../../contexts/UserContext";
 
 const PrivateIcon = () => {
     return (
@@ -66,12 +23,30 @@ const PrivateIcon = () => {
     );
 };
 
+const PublicIcon = () => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-6 h-6"
+        >
+            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            <path
+                fillRule="evenodd"
+                d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
+                clipRule="evenodd"
+            />
+        </svg>
+    );
+};
+
 const ItineraryContainer = ({ itinerary }) => {
-    const { id, title, desc, isPublic } = itinerary;
+    const { _id, cityName, desc, isPublic } = itinerary;
     return (
         <div className="collapse collapse-plus bg-neutral">
             <input type="radio" name="my-accordion" />
-            <div className="collapse-title text-xl font-medium">{title}</div>
+            <div className="collapse-title text-xl font-medium">Itinerary for {cityName}</div>
             <div className="collapse-content">
                 <p>{desc}</p>
                 <p className="flex items-center gap-2">
@@ -89,7 +64,7 @@ const ItineraryContainer = ({ itinerary }) => {
                     )}
                 </p>
                 <div className="card-actions justify-end">
-                    <Link to={`${id}`}>
+                    <Link to={`${_id}`}>
                         <button className="btn btn-secondary">
                             Click here for more details
                         </button>
@@ -101,9 +76,38 @@ const ItineraryContainer = ({ itinerary }) => {
 };
 
 export default function UserPlans() {
-    function handleAddItinerary() {
+    const { user } = useUser();
+    const [userItineraries, setUserItineraries] = useState([]);
+
+    function handleOpenModal() {
         document.getElementById("add_plan_modal").showModal();
     }
+
+    useEffect(() => {
+        const fetchUserItineraries = async () => {
+            try {
+                const response = await fetch(
+                    `http://localhost:3001/api/itinerary/getAllItinerary/${user.userId}`,
+                    {
+                        method: "GET",
+                        headers: { "Content-Type": "application/json" },
+                    }
+                );
+                if (response.ok) {
+                    const responseData = await response.json();
+                    console.log(responseData);
+                    setUserItineraries(responseData);
+                } else {
+                    console.log("Itinerary fetching failed");
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+    
+        fetchUserItineraries();
+    }, []);
+    
 
     return (
         <div
@@ -125,7 +129,7 @@ export default function UserPlans() {
                 <div className="flex items-center justify-center pb-8">
                     <button
                         className="btn btn-wide btn-outline btn-secondary"
-                        onClick={handleAddItinerary}
+                        onClick={handleOpenModal}
                     >
                         <PlusIcon />
                         Add an Itinerary

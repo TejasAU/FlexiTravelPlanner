@@ -1,33 +1,5 @@
-const itineraryData = [
-    {
-        title: "Explore Place",
-        category: "Restaurant",
-        address: "XYZ",
-        notes: "ABC",
-        timeslot: "9AM",
-    },
-    {
-        title: "Explore Place",
-        category: "Restaurant",
-        address: "XYZ",
-        notes: "ABC",
-        timeslot: "11AM",
-    },
-    {
-        title: "Explore Place",
-        category: "Restaurant",
-        address: "XYZ",
-        notes: "ABC",
-        timeslot: "1PM",
-    },
-    {
-        title: "Explore Place",
-        category: "Restaurant",
-        address: "XYZ",
-        notes: "ABC",
-        timeslot: "3PM",
-    },
-];
+import { useEffect } from "react";
+import { useItinerary } from "../../contexts/ItineraryContext";
 
 const EditIcon = () => (
     <svg
@@ -63,16 +35,16 @@ const DeleteIcon = () => (
     </svg>
 );
 
-export default function DayTimeline({ test }) {
+export default function DayTimeline({ dayActivities }) {
     return (
         <ul className="timeline timeline-vertical timeline-snap-icon timeline-compact">
-            {itineraryData.map((entry, index) => (
+            {dayActivities.map((entry, index) => (
                 <li key={index}>
                     <hr className="bg-secondary" />
                     <div className="timeline-start">{entry.timeslot}</div>
                     <div className="timeline-end timeline-box bg-neutral w-full">
                         <h2 className="text-2xl font-semibold">
-                            {entry.title} {test}
+                            {entry.title}
                         </h2>
                         <p className="pt-2">Category: {entry.category}</p>
                         <p>Address: {entry.address}</p>

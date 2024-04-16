@@ -8,6 +8,7 @@ import {
 import DayTimeline from "./DayTimeline";
 import { Link } from "react-router-dom";
 import { useItinerary } from "../../contexts/ItineraryContext";
+import { useParams } from "react-router-dom";
 
 const ExploreCityButton = () => {
     return (
@@ -21,8 +22,9 @@ const ExploreCityButton = () => {
 
 export default function PlanSchedule() {
     const [justifyActive, setJustifyActive] = useState("tab1");
-    const { startDate, endDate, city } = useItinerary();
-    const [dates, setDates] = useState([])
+    const [itinerary, setItinerary] = useState({});
+    const { setCity } = useItinerary();
+
     const handleJustifyClick = (value) => {
         if (value === justifyActive) {
             return;
@@ -30,29 +32,36 @@ export default function PlanSchedule() {
         setJustifyActive(value);
     };
 
-    const getDates = (startDate, endDate) => {
-        const dates = [];
-        let currentDate = new Date(startDate);
-
-        while (currentDate <= endDate) {
-            dates.push(new Date(currentDate).toISOString().slice(0, 10));
-            currentDate.setDate(currentDate.getDate() + 1);
-        }
-
-        return dates;
-    };
-
+    const { itineraryId } = useParams();
     useEffect(() => {
-        const startDateObj = new Date(startDate)
-        const endDateObj = new Date(endDate)
-        const datesBetween = getDates(startDateObj, endDateObj);
-        setDates(datesBetween);
+        const fetchSingleItinerary = async () => {
+            try {
+                const response = await fetch(
+                    `http://localhost:3001/api/itinerary/getItineraryById/${itineraryId}`,
+                    {
+                        method: "GET",
+                        headers: { "Content-Type": "application/json" },
+                    }
+                );
+                if (response.ok) {
+                    const responseData = await response.json();
+                    setItinerary(responseData.message);
+                    setCity(responseData.message.cityName);
+                } else {
+                    console.log("Itinerary fetching failed");
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchSingleItinerary();
     }, []);
 
     return (
         <div className="mb-3">
             <TETabs justify>
-                {dates.map((date, index) => {
+                {itinerary.schedule?.map((dayData, index) => {
                     return (
                         <TETabsItem
                             onClick={() =>
@@ -64,7 +73,7 @@ export default function PlanSchedule() {
                         >
                             <div className="flex flex-col text-base">
                                 <div>Day {index + 1}</div>
-                                <div>{date}</div>
+                                <div>{dayData.date}</div>
                             </div>
                         </TETabsItem>
                     );
@@ -72,12 +81,12 @@ export default function PlanSchedule() {
             </TETabs>
 
             <TETabsContent>
-                {dates.map((_, index) => (
+                {itinerary.schedule?.map((dayData, index) => (
                     <TETabsPane show={justifyActive === "tab" + (index + 1)}>
                         <Link to={"../../explorecity/1"}>
                             <ExploreCityButton />
                         </Link>
-                        <DayTimeline test={index + 1} />
+                        <DayTimeline dayActivities={dayData.activities} />
                     </TETabsPane>
                 ))}
             </TETabsContent>

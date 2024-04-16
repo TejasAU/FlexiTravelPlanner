@@ -1,4 +1,8 @@
+import { useUser } from "../../contexts/UserContext";
+
 export default function AddPOIModal() {
+    const {startDate, endDate} = useUser()
+
     return (
         <dialog
             id="add_poi_modal"
@@ -13,11 +17,11 @@ export default function AddPOIModal() {
                         <p className="py-4">Add a description (optional)</p>
                         <input />
                         <p>Select date for this activity</p>
-                        <input type="date" />
+                        <input type="date" min={startDate} max={endDate} />
                         <p className="py-4">
                             Select a timeslot for this activity
                         </p>
-                        <input type="time" />
+                        <input type="time" step="3600"/>
                         <button className="btn">
                             Create Event for Itinerary
                         </button>
