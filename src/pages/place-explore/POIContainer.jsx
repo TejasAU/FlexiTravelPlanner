@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AddPOIModal from "./AddPOIModal";
 import apiKeys from "../../../apiKeys";
 
 export default function POIContainer({ city, category }) {
     const containerRef = useRef(null);
     const apiKey = apiKeys.foursquare;
-    const [placesData, setPlacesData] = useState([])
+    const [placesData, setPlacesData] = useState([]);
+    const [modalData, setModalData] = useState({ placeName: "", address: "", category: "" });
     const scrollRight = () => {
         const container = containerRef.current;
         if (container) {
@@ -56,9 +57,22 @@ export default function POIContainer({ city, category }) {
         </svg>
     );
 
-    function handleAddPOI() {
-        document.getElementById("add_poi_modal").showModal();
-    }
+    const handleAddPOI = (placeName, address, category) => {
+        setModalData({ placeName, address, category });
+    };
+
+    const getCategoryString = (category) => {
+        switch (category) {
+            case 10000:
+                return "Arts and Entertainment";
+            case 13000:
+                return "Dining and Drinking";
+            case 16000:
+                return "Landmark and Outdoors";
+            default:
+                return "";
+        }
+    };
 
     useEffect(() => {
         const placeSearch = async () => {
@@ -79,7 +93,6 @@ export default function POIContainer({ city, category }) {
                     const data = await response.json();
                     console.log(data.results);
                     setPlacesData(data.results);
-
                 } catch (error) {
                     console.error(error);
                 }
@@ -87,7 +100,7 @@ export default function POIContainer({ city, category }) {
                 console.error(err);
             }
         };
-        placeSearch()
+        placeSearch();
     }, []);
 
     return (
@@ -107,7 +120,11 @@ export default function POIContainer({ city, category }) {
                         <div className="card w-96 bg-neutral shadow-xl">
                             <figure>
                                 <img
-                                    src={place.photos[0]?.prefix + "226x384" + place.photos[0]?.suffix}
+                                    src={
+                                        place.photos[0]?.prefix +
+                                        "226x384" +
+                                        place.photos[0]?.suffix
+                                    }
                                     alt="Photo of a place"
                                 />
                             </figure>
@@ -117,10 +134,16 @@ export default function POIContainer({ city, category }) {
                                 <div className="card-actions justify-end">
                                     <button
                                         className="btn btn-secondary"
-                                        onClick={handleAddPOI}
+                                        onClick={() =>
+                                            handleAddPOI(
+                                                place.name,
+                                                place.location
+                                                    .formatted_address,
+                                                getCategoryString(category)
+                                            )
+                                        }
                                     >
                                         Add to Itinerary
-                                        <AddPOIModal />
                                     </button>
                                 </div>
                             </div>
@@ -134,6 +157,11 @@ export default function POIContainer({ city, category }) {
             >
                 <RightChevronIcon />
             </button>
+            <AddPOIModal
+                placeName={modalData.placeName}
+                address={modalData.address}
+                category={modalData.category}
+            />
         </div>
     );
 }

@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useItinerary } from "../../contexts/ItineraryContext";
+import { useEffect, useState } from "react";
 
 const EditIcon = () => (
     <svg
@@ -36,9 +35,19 @@ const DeleteIcon = () => (
 );
 
 export default function DayTimeline({ dayActivities }) {
+    const [sortedActivities, setSortedActivities] = useState([]);
+
+    useEffect(() => {
+        // Sort the dayActivities array in increasing order of timeslot
+        const sorted = [...dayActivities].sort((a, b) =>
+            a.timeslot.localeCompare(b.timeslot)
+        );
+        setSortedActivities(sorted);
+    }, [dayActivities]);
+    
     return (
         <ul className="timeline timeline-vertical timeline-snap-icon timeline-compact">
-            {dayActivities.map((entry, index) => (
+            {sortedActivities.map((entry, index) => (
                 <li key={index}>
                     <hr className="bg-secondary" />
                     <div className="timeline-start">{entry.timeslot}</div>

@@ -28,13 +28,6 @@ export default function AddPlanModal() {
 
     let itineraryId = "";
 
-    const handleCloseModal = () => {
-        const modal = document.getElementById("add_plan_modal");
-        if (modal) {
-            modal.close();
-        }
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true); // Assuming you have a useState for loading state

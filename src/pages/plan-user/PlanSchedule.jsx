@@ -23,7 +23,7 @@ const ExploreCityButton = () => {
 export default function PlanSchedule() {
     const [justifyActive, setJustifyActive] = useState("tab1");
     const [itinerary, setItinerary] = useState({});
-    const { setCity } = useItinerary();
+    const { setCity, setItineraryId, setCityId, setStartDate, setEndDate } = useItinerary();
 
     const handleJustifyClick = (value) => {
         if (value === justifyActive) {
@@ -46,7 +46,15 @@ export default function PlanSchedule() {
                 if (response.ok) {
                     const responseData = await response.json();
                     setItinerary(responseData.message);
+                    const startDate = responseData.message.schedule[0].date
+                    const length = responseData.message.schedule.length
+                    const endDate = responseData.message.schedule[length - 1].date
+                    // Update Context
+                    setItineraryId(itineraryId);
+                    setCityId(responseData.message.cityId);
                     setCity(responseData.message.cityName);
+                    setStartDate(startDate)
+                    setEndDate(endDate)
                 } else {
                     console.log("Itinerary fetching failed");
                 }
