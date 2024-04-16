@@ -5,9 +5,11 @@ export default function Signup() {
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [isTermsChecked, setIsTermsChecked] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(isTermsChecked){
         const formData = {
             name: firstName + " " + lastName,
             email,
@@ -31,6 +33,9 @@ export default function Signup() {
         } catch (error) {
             console.error("Error:", error);
         }
+    }else {
+        alert('Please agree to the terms and conditions.');
+      }
     };
 
     return (
@@ -39,14 +44,7 @@ export default function Signup() {
             onSubmit={handleSubmit}
         >
             <div className="xl:max-w-7xl bg-white drop-shadow-xl border border-black/20 w-full rounded-md flex justify-between items-stretch px-5 xl:px-5 py-5">
-                {/* <div className="sm:w-[60%] lg:w-[50%] bg-cover bg-center items-center justify-center hidden md:flex ">
-           // Add usericon image
-              <img
-                src="usericon.png"
-                alt="login"
-                className="h-[500px]"
-              />
-            </div> */}
+                
                 <div className="mx-auto w-full lg:w-1/2 md:p-10 py-5 md:py-0">
                     <h1 className="text-center text-2xl sm:text-3xl font-semibold text-[#4A07DA]">
                         Create Account
@@ -93,6 +91,8 @@ export default function Signup() {
                                         <input
                                             type="checkbox"
                                             className="checkbox-xs checkbox-primary"
+                                            checked={isTermsChecked}
+                                            onChange={(event) => setIsTermsChecked(event.target.checked)}
                                         />
                                     </label>
                                 </div>
@@ -112,6 +112,7 @@ export default function Signup() {
                                 <button
                                     className="btn btn-active btn-primary btn-block max-w-[200px]"
                                     type="submit"
+                                    disabled={!isTermsChecked}
                                 >
                                     Sign Up
                                 </button>
