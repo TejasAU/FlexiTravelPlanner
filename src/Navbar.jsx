@@ -54,7 +54,7 @@ export default function Navbar() {
     const [success, setSuccess] = useState(false);
     const navigate = useNavigate();
     const { user, logoutUser } = useUser();
-    const { setIsReadOnly } = useItinerary()
+    const { setIsReadOnly } = useItinerary();
 
     const handleLogout = () => {
         setLoading(true);
@@ -95,11 +95,21 @@ export default function Navbar() {
                             <Link to={`/`}>Home</Link>
                         </li>
                         <li>
-                            <Link to={`exploreplans`} onClick={() => setIsReadOnly(true)}>Explore Itineraries</Link>
+                            <Link
+                                to={`exploreplans`}
+                                onClick={() => setIsReadOnly(true)}
+                            >
+                                Explore Itineraries
+                            </Link>
                         </li>
                         <li>
                             {user ? (
-                                <Link to={`myplans`} onClick={() => setIsReadOnly(false)}>My Itineraries</Link>
+                                <Link
+                                    to={`myplans`}
+                                    onClick={() => setIsReadOnly(false)}
+                                >
+                                    My Itineraries
+                                </Link>
                             ) : null}
                         </li>
                     </ul>
@@ -114,11 +124,21 @@ export default function Navbar() {
                         <Link to={`/`}>Home</Link>
                     </li>
                     <li>
-                        <Link to={`exploreplans`} onClick={() => setIsReadOnly(true)}>Explore Itineraries</Link>
+                        <Link
+                            to={`exploreplans`}
+                            onClick={() => setIsReadOnly(true)}
+                        >
+                            Explore Itineraries
+                        </Link>
                     </li>
                     <li>
                         {user ? (
-                            <Link to={`myplans`} onClick={() => setIsReadOnly(false)}>My Itineraries</Link>
+                            <Link
+                                to={`myplans`}
+                                onClick={() => setIsReadOnly(false)}
+                            >
+                                My Itineraries
+                            </Link>
                         ) : null}
                     </li>
                 </ul>
@@ -129,24 +149,11 @@ export default function Navbar() {
                         <div className="font-semibold">Hello, {user.name}!</div>
                         <button
                             type="submit"
-                            className={`btn btn-outline ${
-                                success ? "btn-success" : "btn-neutral"
-                            }`}
+                            className="btn btn-outline btn-neutral"
                             onClick={handleLogout}
                         >
-                            {loading ? (
-                                <>
-                                    <span className="loading loading-spinner loading-md" />
-                                    <div>Logging out...</div>
-                                </>
-                            ) : success ? (
-                                "Logged out successfully!"
-                            ) : (
-                                <>
-                                    <LogoutIcon />
-                                    Log Out
-                                </>
-                            )}
+                            <LogoutIcon />
+                            Log Out
                         </button>
                     </>
                 ) : (

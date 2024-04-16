@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useItinerary } from "../../contexts/ItineraryContext";
 
@@ -13,6 +13,7 @@ export default function AddPlanModal() {
 
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [redirectUrl, setRedirectUrl] = useState("");
 
     const getDates = (startDate, endDate) => {
         const dates = [];
@@ -34,6 +35,7 @@ export default function AddPlanModal() {
 
         const startDateObj = new Date(localStartDate);
         const endDateObj = new Date(localEndDate);
+
         const response = await fetch(
             "http://localhost:3001/api/itinerary/createItinerary",
             {
@@ -52,8 +54,8 @@ export default function AddPlanModal() {
 
         if (response.status === 201) {
             const responseData = await response.json();
-            console.log(responseData);
             itineraryId = responseData.message;
+            setRedirectUrl(`/myplans/${itineraryId}`)
             // Set context states to local ones
             setStartDate(localStartDate);
             setEndDate(localEndDate);
@@ -79,7 +81,7 @@ export default function AddPlanModal() {
         let redirectTimeout;
         if (success) {
             redirectTimeout = setTimeout(() => {
-                navigate(`/myplans/${itineraryId}`);
+                navigate(redirectUrl);
             }, 2000);
         }
 
