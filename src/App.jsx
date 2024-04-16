@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./Navbar";
 import React from "react";
 import { useOutlet } from 'react-router-dom';
 import Home from "./pages/home/Home";

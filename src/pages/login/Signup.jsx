@@ -69,7 +69,7 @@ export default function Signup() {
 
     return (
         <form
-            className="flex justify-center items-center w-full  min-h-screen bg-white px-5 py-5"
+            className="flex justify-center items-center w-full  min-h-screen bg-base-200 px-5 py-5"
             onSubmit={handleSubmit}
         >
             <div className="xl:max-w-7xl bg-white drop-shadow-xl border border-black/20 w-full rounded-md flex justify-between items-stretch px-5 xl:px-5 py-5">
@@ -104,10 +104,8 @@ export default function Signup() {
                                 type="text"
                                 placeholder="Enter Your Email"
                                 value={email}
-                                className="input input-bordered input-primary w-full text-black placeholder:text-black/70"
                                 onChange={handleEmailChange}
                                 className="input input-bordered input-secondary w-full text-black placeholder:text-black/70"
-                                onChange={(e) => setEmail(e.target.value)}
                             />
                             {error && <p className="text-error">{error}</p>}
                             <input
@@ -122,7 +120,6 @@ export default function Signup() {
                                     <label className="label cursor-pointer">
                                         <input
                                             type="checkbox"
-                                            className="checkbox-xs checkbox-primary"
                                             checked={isTermsChecked}
                                             onChange={(event) => setIsTermsChecked(event.target.checked)}
                                             className="checkbox-xs checkbox-secondary"

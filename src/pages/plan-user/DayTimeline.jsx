@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EditActivityModal from "./EditActivityModal";
 import DeleteActivityModal from "./DeleteActivityModal";
+import { useItinerary } from "../../contexts/ItineraryContext";
 
 const EditIcon = () => (
     <svg
@@ -41,6 +42,7 @@ export default function DayTimeline({ dayActivities, date }) {
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
     const [selectedActivity, setSelectedActivity] = useState(null);
+    const { isReadOnly } = useItinerary();
 
     useEffect(() => {
         const sorted = [...dayActivities].sort((a, b) =>
@@ -101,10 +103,10 @@ export default function DayTimeline({ dayActivities, date }) {
             const response = await fetch(
                 `http://localhost:3001/api/itinerary/deleteActivity/${selectedActivity._id}`,
                 {
-                    method: "DELETE"
+                    method: "DELETE",
                 }
             );
-            
+
             if (response.status === 200) {
                 // Remove the deleted activity from the state
                 const updatedActivities = sortedActivities.filter(
@@ -118,7 +120,6 @@ export default function DayTimeline({ dayActivities, date }) {
             console.error("Error deleting activity:", error.message);
         }
     };
-    
 
     return (
         <ul className="timeline timeline-vertical timeline-snap-icon timeline-compact">
@@ -133,30 +134,34 @@ export default function DayTimeline({ dayActivities, date }) {
                         <p className="pt-2">Category: {entry.category}</p>
                         <p>Address: {entry.address}</p>
                         <p>Notes: {entry.notes}</p>
-                        <div className="card-actions justify-end">
-                            <div
-                                className="lg:tooltip lg:tooltip-secondary"
-                                data-tip="Edit entry"
-                            >
-                                <button
-                                    className="btn btn-ghost"
-                                    onClick={() => handleEdit(entry)}
-                                >
-                                    <EditIcon />
-                                </button>
-                            </div>
-                            <div
-                                className="lg:tooltip lg:tooltip-secondary"
-                                data-tip="Delete entry"
-                            >
-                                <button
-                                    className="btn btn-ghost"
-                                    onClick={() => handleDelete(entry)}
-                                >
-                                    <DeleteIcon />
-                                </button>
-                            </div>
-                        </div>
+                        {!isReadOnly ? (
+                            <>
+                                <div className="card-actions justify-end">
+                                    <div
+                                        className="lg:tooltip lg:tooltip-secondary"
+                                        data-tip="Edit entry"
+                                    >
+                                        <button
+                                            className="btn btn-ghost"
+                                            onClick={() => handleEdit(entry)}
+                                        >
+                                            <EditIcon />
+                                        </button>
+                                    </div>
+                                    <div
+                                        className="lg:tooltip lg:tooltip-secondary"
+                                        data-tip="Delete entry"
+                                    >
+                                        <button
+                                            className="btn btn-ghost"
+                                            onClick={() => handleDelete(entry)}
+                                        >
+                                            <DeleteIcon />
+                                        </button>
+                                    </div>
+                                </div>
+                            </>
+                        ) : null}
                     </div>
                     <hr className="bg-secondary" />
                 </li>

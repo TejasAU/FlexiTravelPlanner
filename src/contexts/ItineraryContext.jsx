@@ -12,6 +12,7 @@ export const ItineraryProvider = ({ children }) => {
     const [city, setCity] = useState('');
     const [cityId, setCityId] = useState('');
     const [itineraryId, setItineraryId] = useState('');
+    const [isReadOnly, setIsReadOnly] = useState('');
 
     const values = {
         startDate,
@@ -23,7 +24,9 @@ export const ItineraryProvider = ({ children }) => {
         cityId,
         setCityId,
         itineraryId,
-        setItineraryId
+        setItineraryId,
+        isReadOnly, 
+        setIsReadOnly
     };
 
     return (

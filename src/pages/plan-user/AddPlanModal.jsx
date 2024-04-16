@@ -41,7 +41,7 @@ export default function AddPlanModal() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     userId: JSON.parse(localStorage.getItem("user")).userId,
-                    cityId: "1", //TODO: update to FSQ city id
+                    cityId: "1",
                     cityName: localCity,
                     desc,
                     isPublic: true,

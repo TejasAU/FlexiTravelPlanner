@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useUser } from "../contexts/UserContext";
+import { useUser } from "./contexts/UserContext";
+import { useItinerary } from "./contexts/ItineraryContext";
 
 const LoginIcon = () => (
     <svg
@@ -53,25 +54,13 @@ export default function Navbar() {
     const [success, setSuccess] = useState(false);
     const navigate = useNavigate();
     const { user, logoutUser } = useUser();
+    const { setIsReadOnly } = useItinerary()
 
     const handleLogout = () => {
         setLoading(true);
         localStorage.removeItem("user");
         logoutUser(); // Update user context
-        setTimeout(() => {
-            setLoading(false);
-            setSuccess(true);
-
-            // Reset success message after 2 seconds
-            setTimeout(() => {
-                setSuccess(false);
-            }, 2000);
-
-            // Redirect after 2 seconds
-            setTimeout(() => {
-                navigate("/");
-            }, 2000);
-        }, 2000);
+        navigate("/");
     };
 
     return (
@@ -106,11 +95,11 @@ export default function Navbar() {
                             <Link to={`/`}>Home</Link>
                         </li>
                         <li>
-                            <Link to={`exploreplans`}>Explore Itineraries</Link>
+                            <Link to={`exploreplans`} onClick={() => setIsReadOnly(true)}>Explore Itineraries</Link>
                         </li>
                         <li>
                             {user ? (
-                                <Link to={`myplans`}>My Itineraries</Link>
+                                <Link to={`myplans`} onClick={() => setIsReadOnly(false)}>My Itineraries</Link>
                             ) : null}
                         </li>
                     </ul>
@@ -125,11 +114,11 @@ export default function Navbar() {
                         <Link to={`/`}>Home</Link>
                     </li>
                     <li>
-                        <Link to={`exploreplans`}>Explore Itineraries</Link>
+                        <Link to={`exploreplans`} onClick={() => setIsReadOnly(true)}>Explore Itineraries</Link>
                     </li>
                     <li>
                         {user ? (
-                            <Link to={`myplans`}>My Itineraries</Link>
+                            <Link to={`myplans`} onClick={() => setIsReadOnly(false)}>My Itineraries</Link>
                         ) : null}
                     </li>
                 </ul>

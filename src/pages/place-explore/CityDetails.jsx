@@ -1,4 +1,3 @@
-import { useState, useRef } from "react";
 import POIContainer from "./POIContainer";
 import exploreCityOverlay from "../../assets/explore-city-overlay.jpg";
 import { useItinerary } from "../../contexts/ItineraryContext";
