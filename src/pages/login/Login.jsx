@@ -31,7 +31,7 @@ export default function Login() {
         setLoginError(message);
         setTimeout(() => {
             setLoginError(null);
-        }, 2000); // Hide the message after two seconds (2000 milliseconds)
+        }, 2000);
     };
 
     const handleSubmit = async (e) => {

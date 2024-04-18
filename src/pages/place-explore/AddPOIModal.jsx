@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useItinerary } from "../../contexts/ItineraryContext";
 
@@ -27,7 +27,7 @@ export default function AddPOIModal({ placeName, address, category }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true); // Assuming you have a useState for loading state
+        setLoading(true);
         console.log(placeName + " " + address + " " + category);
         const response = await fetch(
             "http://localhost:3001/api/itinerary/createActivity",

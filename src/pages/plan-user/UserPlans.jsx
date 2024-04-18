@@ -10,7 +10,9 @@ const ItineraryContainer = ({ itinerary }) => {
     return (
         <div className="collapse collapse-plus bg-neutral">
             <input type="radio" name="my-accordion" />
-            <div className="collapse-title text-xl font-medium">Itinerary for {cityName}</div>
+            <div className="collapse-title text-xl font-medium">
+                Itinerary for {cityName}
+            </div>
             <div className="collapse-content">
                 <p>{desc}</p>
                 <div className="card-actions justify-end">
@@ -54,10 +56,9 @@ export default function UserPlans() {
                 console.error(error);
             }
         };
-    
+
         fetchUserItineraries();
     }, []);
-    
 
     return (
         <div

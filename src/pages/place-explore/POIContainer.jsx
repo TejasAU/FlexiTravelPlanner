@@ -14,8 +14,8 @@ export default function POIContainer({ city, category }) {
         const container = containerRef.current;
         if (container) {
             container.scrollBy({
-                left: 300, // Adjust the scroll distance as needed
-                behavior: "smooth", // Add smooth scrolling animation
+                left: 300, // Scroll distance
+                behavior: "smooth",
             });
         }
     };
@@ -24,8 +24,8 @@ export default function POIContainer({ city, category }) {
         const container = containerRef.current;
         if (container) {
             container.scrollBy({
-                left: -300, // Adjust the scroll distance as needed
-                behavior: "smooth", // Add smooth scrolling animation
+                left: -300,
+                behavior: "smooth",
             });
         }
     };

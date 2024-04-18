@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 export default function SubHero({ alignment, heading, desc }) {
     const { ref, inView } = useInView({
         triggerOnce: false, // Only trigger once
-        threshold: 0.3, // Trigger when 50% of the element is in view
+        threshold: 0.45, // Trigger when 30% of the element is in view
     });
 
     return (
